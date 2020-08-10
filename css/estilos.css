@@ -1,0 +1,96 @@
+html {
+    box-sizing: border-box;
+    height: 100%;
+}
+*, *:before, *:after {
+    box-sizing: inherit; 
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    height: 100%;
+/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#1e5799+0,2989d8+50,207cca+100,7db9e8+100 */
+background: #1e5799; /* Old browsers */
+background: -moz-linear-gradient(top,  #1e5799 0%, #2989d8 50%, #207cca 100%, #7db9e8 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #1e5799 0%,#2989d8 50%,#207cca 100%,#7db9e8 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #1e5799 0%,#2989d8 50%,#207cca 100%,#7db9e8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
+
+background-attachment: fixed; /** Sirve para fijar el degradado **/
+}
+
+header {
+    text-align: center;
+    padding: 40px 0;
+}
+img {
+    max-width: 100%; /** Hace todas las imagenes responsivas **/
+}
+.contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.hero {
+    margin-bottom: 40px;
+}
+h2 {
+    text-align: center;
+    text-transform: uppercase;
+}
+.lista-productos {   /** Este seria el ul **/
+    padding: 0;
+    list-style: none;
+}
+
+.lista-productos li {  /** En pixeles menor a 768 que tiene el mediaquery se aplicara esto **/
+    float: left;
+    width: 50%;
+    padding: 20px; /** Este padding sirve gracias al box sizing, ya que sin el no se pudiera aplicar con el 33.3% del width en las lineas de abajo **/
+    text-align: center;
+}
+.lista-productos li:nth-child(2n+1) /** Con el nth permite que el clear pueda ser de 2-3 **/ {
+    clear: both; /** Permite que limpie todos los elementos dejando que ninguno se posicione al lado del otro **/ 
+}
+@media (min-width:768px) { 
+    .lista-productos li{
+    /** float: left; Se hereda de la clase de arriba **/
+        width: 33.3%; /** Para que multiplicado por 3 nos de casi el 100% **/
+    }
+    .lista-productos li:nth-child(2n+1){
+        clear: unset;
+    }
+    .lista-productos li:nth-child(3n+1){
+        clear: both;
+    }
+}
+.lista-productos li img {
+    border: 10px solid rgba(128, 1, 195, .45);
+    transition: border-color .3s ease-in-out 
+}
+.lista-productos li img:hover {
+    border: 10px solid rgba(128, 1, 195, 1);
+}
+.lista-productos li p {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 10px 0 0 0;
+}
+span.precio {
+    color: #FFCE00;
+    font-size: 40px;
+}
+.boton{
+    background-color: #FFCE00;
+    padding: 10px 40px;
+    margin-top: 10px;
+    display: inline-block; /** Se aplica debido a que todos los enlaces vienen con un display: inline y por lo tanto no se va a poder aplicar el margin ni tampoco un ancho **/
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    transition: background-color .3s ease-in-out;
+}
+.boton:hover {
+    background-color: #EBBC00;
+
+}
